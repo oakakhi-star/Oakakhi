@@ -178,9 +178,20 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 
 /* ---------- host ---------- */
 .host{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(3rem,7vw,7rem);align-items:center;max-width:1240px;margin:0 auto}
-.host-media{position:relative}
-.host-media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--arch)}
-.host-media::before{content:'';position:absolute;inset:-1.5rem 1.5rem 1.5rem -1.5rem;border:1px solid var(--line-light);border-radius:var(--arch);z-index:-1}
+.host-media{position:relative;padding:0 0 16% 0;margin-right:8%}
+.host-media .hm-main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--arch)}
+.host-media .hm-accent{position:absolute;right:-12%;bottom:0;width:58%;aspect-ratio:4/3;object-fit:cover;border-radius:calc(var(--r) + 10px);border:10px solid var(--cream);box-shadow:0 30px 60px -30px rgba(35,42,34,.5)}
+.hm-badge{position:absolute;left:1.5rem;bottom:calc(16% + 1.5rem);display:flex;flex-direction:column;align-items:center;justify-content:center;width:6.5rem;height:6.5rem;border-radius:50%;background:var(--leaf);color:var(--oak-ink);font-family:var(--serif);font-size:1.35rem;line-height:1.1;box-shadow:0 18px 36px -18px rgba(35,42,34,.6)}
+.hm-badge b{font-family:var(--sans);font-weight:500;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.25rem}
+.host-strip{max-width:1240px;margin:clamp(5rem,9vw,8rem) auto 0;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1.25rem;align-items:end}
+.hs-head{align-self:center;padding-right:1rem}
+.hs-head p{font-family:var(--serif);font-style:italic;font-size:1.6rem;line-height:1.3;color:var(--oak);margin-top:1rem}
+.host-strip figure{position:relative}
+.host-strip figure:nth-of-type(2){transform:translateY(-2.5rem)}
+.host-strip img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);transition:transform 1.2s var(--ease)}
+.host-strip figure:hover img{transform:scale(1.02)}
+.host-strip figcaption{margin-top:.9rem;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--wood)}
+.host-media::before{content:'';position:absolute;inset:-1.5rem 1.5rem calc(16% + 1.5rem) -1.5rem;border:1px solid var(--line-light);border-radius:var(--arch);z-index:-1}
 .host h2{margin:1.4rem 0 2rem}
 .pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
 .pills span{border-radius:999px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line-light);color:var(--oak);padding:.5rem 1rem}
@@ -308,6 +319,9 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .footer-top>div:first-child{grid-column:1/-1}
   .band{background-attachment:scroll;background-image:url('assets/img/band-1200.webp')}
   .host-media::before{display:none}
+  .host-media{margin-right:10%}
+  .host-strip{grid-template-columns:1fr 1fr 1fr}
+  .hs-head{grid-column:1/-1;padding:0}
 }
 @media (max-width:760px){
   .hero-inner{grid-template-columns:1fr}
@@ -330,6 +344,12 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .reserve-bar .btn{flex:1;justify-content:center;padding:.95rem}
   .site-footer{padding-bottom:6rem}
   .collage .tag{display:none}
+  .host-strip{grid-template-columns:repeat(3,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(var(--gutter) * -1);padding-right:var(--gutter);padding-bottom:.5rem;scrollbar-width:none}
+  .host-strip::-webkit-scrollbar{display:none}
+  .host-strip figure{scroll-snap-align:start}
+  .hs-head{justify-self:start;width:calc(100vw - 2 * var(--gutter))}
+  .host-strip figure:nth-of-type(2){transform:none}
+  .hm-badge{width:5rem;height:5rem;font-size:1.1rem;left:1rem}
   .hide-sm{display:none}
   .band::before{background:rgba(35,42,34,.6)}
 }
@@ -501,7 +521,11 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 <!-- HOST -->
 <section class="light" id="host">
   <div class="host">
-    <div class="host-media reveal"><img src="assets/img/host.webp" alt="Morning chai on the Oakakhi balcony, the house among the trees" loading="lazy"></div>
+    <div class="host-media reveal">
+      <img class="hm-main" src="assets/img/nishant-main.webp" alt="Nishant beneath prayer flags, the snow peaks of the Himalaya behind him" loading="lazy">
+      <img class="hm-accent" src="assets/img/nishant-accent.webp" alt="Nishant resting in the sun before a glaciated Himalayan peak" loading="lazy">
+      <span class="hm-badge"><b>Host</b>Nishant</span>
+    </div>
     <div class="reveal r2">
       <span class="eyebrow">Your Host</span>
       <h2>Born on these ridges. <em>Returned to build.</em></h2>
@@ -511,6 +535,12 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
       <div class="pills"><span>Born in Ranikhet</span><span>Former Airbnb hospitality</span><span>Trek leader</span><span>Mountaineer</span><span>Stargazing host</span><span>Kumaoni cuisine</span></div>
       <p class="signature">Nishant, your host</p>
     </div>
+  </div>
+  <div class="host-strip">
+    <div class="hs-head reveal"><span class="eyebrow">Nishant in the Mountains</span><p>The trails he knows by heart, and will gladly share.</p></div>
+    <figure class="reveal"><img src="assets/img/nishant-trail.webp" alt="Nishant on a Himalayan trail with his pack, the snows ahead" loading="lazy"><figcaption>On the trail</figcaption></figure>
+    <figure class="reveal r2"><img src="assets/img/nishant-peaks.webp" alt="Nishant in the sun with the Himalayan range behind" loading="lazy"><figcaption>Among the high peaks</figcaption></figure>
+    <figure class="reveal r3"><img src="assets/img/nishant-camp.webp" alt="Nishant at a camp above a sea of hills at first light" loading="lazy"><figcaption>Camp at first light</figcaption></figure>
   </div>
 </section>
 
