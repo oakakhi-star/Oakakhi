@@ -164,6 +164,63 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 .amenities li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--leaf)}
 .badge{border-radius:999px;display:inline-block;margin-left:.8rem;vertical-align:middle;font-family:var(--sans);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;background:var(--leaf);color:var(--oak-ink);padding:.35rem .7rem}
 
+
+/* ---------- rooms (tabbed showcase) ---------- */
+.rooms-head{max-width:1240px;margin:0 auto clamp(3rem,6vw,4.5rem);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+.rooms-head h2{margin-top:1.4rem;text-wrap:balance}
+.rooms-head .lead{text-wrap:pretty}
+.rooms-tabs{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-light)}
+.rt{background:none;border:0;border-bottom:1px solid var(--line-light);padding:1.4rem .5rem 1.3rem 0;text-align:left;cursor:pointer;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:1rem;font-family:var(--sans);color:var(--oak);position:relative;transition:color .4s}
+.rt::after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--wood);transition:width .6s var(--ease)}
+.rt[aria-selected="true"]::after{width:100%}
+.rt-no{grid-row:1/3;font-family:var(--serif);font-size:1.6rem;font-weight:300;line-height:1;color:var(--wood);opacity:.55;padding-top:.15rem}
+.rt-name{font-family:var(--serif);font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.1}
+.rt-sub{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--wood);opacity:.8;margin-top:.35rem}
+.rt[aria-selected="true"] .rt-no{opacity:1}
+.rt:hover .rt-name,.rt[aria-selected="true"] .rt-name{color:var(--oak-ink)}
+.rt:focus-visible{outline:2px solid var(--wood);outline-offset:4px}
+.rooms-panels{max-width:1240px;margin:clamp(2.5rem,5vw,4rem) auto 0}
+.rp[hidden]{display:none}
+.rp{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2.5rem,6vw,6rem);align-items:start;animation:rpIn .8s var(--ease)}
+@keyframes rpIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rp-main{position:relative;border-radius:var(--arch);overflow:hidden;transform:translateZ(0)}
+.rp-main img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:opacity .45s var(--ease)}
+.rp-main img.fading{opacity:0}
+.rp-count{position:absolute;right:1.1rem;bottom:1.1rem;font-size:.6rem;letter-spacing:.26em;color:var(--cream);background:rgba(35,42,34,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.45rem .8rem;border-radius:999px}
+.rp-thumbs{display:flex;gap:.7rem;margin-top:.9rem}
+.rp-thumb{flex:1;max-width:96px;aspect-ratio:1;border:0;padding:0;border-radius:var(--r-sm);overflow:hidden;cursor:pointer;opacity:.55;outline:1px solid transparent;outline-offset:3px;transition:opacity .3s,outline-color .3s}
+.rp-thumb img{width:100%;height:100%;object-fit:cover}
+.rp-thumb:hover{opacity:.85}
+.rp-thumb.on{opacity:1;outline-color:var(--wood)}
+.rp-info{position:sticky;top:7rem;padding-top:1rem}
+.rp-type{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--wood)}
+.rp-info h3{font-size:clamp(2.8rem,5vw,4.2rem);margin:.8rem 0 .4rem}
+.rp-meaning{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--oak);opacity:.85}
+.rp-info .badge{margin:1.1rem 0 0}
+.rp-desc{margin:1.6rem 0 2.2rem;font-size:1.02rem;max-width:32rem}
+.rp-facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-light);margin-bottom:2.4rem}
+.rp-facts div{padding:1.1rem 1rem 1.1rem 0;border-bottom:1px solid var(--line-light)}
+.rp-facts dt{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--wood);margin-bottom:.35rem}
+.rp-facts dd{font-family:var(--serif);font-size:1.15rem;color:var(--oak-ink);line-height:1.25}
+.includes{max-width:1240px;margin:clamp(5rem,9vw,7rem) auto 0;padding:clamp(2rem,4vw,2.8rem) clamp(1.5rem,4vw,3rem);background:var(--paper);border:1px solid var(--line-light);border-radius:var(--r);display:grid;grid-template-columns:auto 1fr;gap:2rem 3rem;align-items:center}
+.includes h4{font-family:var(--serif);font-weight:300;font-size:1.7rem;color:var(--oak);font-style:italic}
+.includes ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem}
+.includes li{display:flex;flex-direction:column;gap:.7rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oak);line-height:1.6}
+.includes svg{width:26px;height:26px;color:var(--wood)}
+@media (max-width:900px){
+  .rooms-head,.rp{grid-template-columns:1fr}
+  .rp-info{position:static}
+  .includes{grid-template-columns:1fr}
+  .includes ul{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:760px){
+  .rooms-tabs{display:flex;overflow-x:auto;scrollbar-width:none;margin-right:calc(var(--gutter) * -1);scroll-snap-type:x mandatory}
+  .rooms-tabs::-webkit-scrollbar{display:none}
+  .rt{flex:0 0 46%;scroll-snap-align:start}
+  .rp-facts{grid-template-columns:1fr 1fr}
+  .includes ul{grid-template-columns:1fr 1fr}
+}
+
 /* ---------- experiences ---------- */
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .exp-card{border-radius:var(--r);transform:translateZ(0);position:relative;display:block;aspect-ratio:3/4;overflow:hidden;color:var(--cream);text-decoration:none;cursor:pointer;background:var(--oak-deep)}
@@ -441,64 +498,81 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 </div>
 
 <!-- ROOMS -->
-<section class="light" id="rooms">
-  <div class="section-head center reveal">
-    <span class="eyebrow">The Rooms</span>
-    <h2>Five rooms, <em>each named for a peak</em></h2>
-    <p class="lead">Cathedral timber ceilings, tall windows, warm wooden floors, and nothing that does not belong. Each room takes its name from a summit on the horizon, a gentle reminder every morning of exactly where you are.</p>
+<section class="light rooms" id="rooms">
+  <div class="rooms-head reveal">
+    <div>
+      <span class="eyebrow">The Rooms</span>
+      <h2>Rest beneath <em>the high peaks</em></h2>
+    </div>
+    <p class="lead">Three deluxe rooms and a two bedroom family suite, each named for a summit on the horizon. Cathedral timber ceilings, tall windows and warm wooden floors, with nothing that does not belong.</p>
   </div>
-
-  <article class="room">
-    <div class="room-media reveal"><img src="assets/img/room-trishul.webp" alt="The Trishul room, with a cathedral timber ceiling and a wall of windows" loading="lazy"></div>
-    <div class="reveal r2">
-      <div class="room-no">01</div>
-      <div class="room-type">Deluxe Room · Mountain View</div>
-      <h3>Trishul <span class="badge">Most requested</span></h3>
-      <p class="room-meaning">After Trishul, the trident of Shiva</p>
-      <p>The signature room. A cathedral timber ceiling rises above a floor to ceiling window that frames the oak forest and, beyond it, the snows. Wake to Trishul catching the first light of the day.</p>
-      <ul class="amenities"><li>Mountain view</li><li>Private balcony</li><li>Two single beds</li><li>En suite bath</li><li>Wi-Fi</li></ul>
-      <a class="link" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Trishul%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Trishul <span aria-hidden="true">→</span></a>
+  <div class="rooms-tabs reveal" role="tablist" aria-label="Choose a room"><button class="rt" role="tab" id="tab-trishul" aria-controls="panel-trishul" aria-selected="true" tabindex="0"><span class="rt-no">01</span><span class="rt-name">Trishul</span><span class="rt-sub">Deluxe</span></button><button class="rt" role="tab" id="tab-nanda" aria-controls="panel-nanda" aria-selected="false" tabindex="-1"><span class="rt-no">02</span><span class="rt-name">Nanda</span><span class="rt-sub">Deluxe</span></button><button class="rt" role="tab" id="tab-pancha" aria-controls="panel-pancha" aria-selected="false" tabindex="-1"><span class="rt-no">03</span><span class="rt-name">Pancha</span><span class="rt-sub">Deluxe</span></button><button class="rt" role="tab" id="tab-suite" aria-controls="panel-suite" aria-selected="false" tabindex="-1"><span class="rt-no">04</span><span class="rt-name">Suite</span><span class="rt-sub">Family</span></button></div>
+  <div class="rooms-panels reveal">
+    <div class="rp" role="tabpanel" id="panel-trishul" aria-labelledby="tab-trishul">
+      <div class="rp-gallery">
+        <div class="rp-main"><img src="assets/img/room-trishul-1.webp" alt="Trishul room with its cathedral timber ceiling" loading="lazy"><span class="rp-count"><b>1</b> / 3</span></div>
+        <div class="rp-thumbs"><button class="rp-thumb on" data-src="assets/img/room-trishul-1.webp" data-alt="Trishul room with its cathedral timber ceiling" aria-label="Show photo 1 of Trishul"><img src="assets/img/room-trishul-1.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-trishul-2.webp" data-alt="Trishul window framing the forest" aria-label="Show photo 2 of Trishul"><img src="assets/img/room-trishul-2.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-trishul-3.webp" data-alt="Trishul beds beneath the tall window" aria-label="Show photo 3 of Trishul"><img src="assets/img/room-trishul-3.webp" alt="" loading="lazy"></button></div>
+      </div>
+      <div class="rp-info">
+        <div class="rp-type">Deluxe Room</div>
+        <h3>Trishul</h3>
+        <p class="rp-meaning">After Trishul, the trident of Shiva</p>
+        <span class="badge">Most requested</span>
+        <p class="rp-desc">The signature room. A cathedral timber ceiling rises above a floor to ceiling window that frames the oak forest and, beyond it, the snows. Wake to Trishul catching the first light of the day.</p>
+        <dl class="rp-facts"><div><dt>Sleeps</dt><dd>Two guests</dd></div><div><dt>Beds</dt><dd>Two single beds</dd></div><div><dt>View</dt><dd>The Himalaya</dd></div><div><dt>Outdoors</dt><dd>Private balcony</dd></div><div><dt>Bath</dt><dd>En suite</dd></div><div><dt>Ideal for</dt><dd>Sunrise lovers</dd></div></dl>
+        <a class="btn btn-wood" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Trishul%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Trishul</a>
+      </div>
     </div>
-  </article>
-
-  <article class="room">
-    <div class="room-media reveal"><img src="assets/img/room-nanda.webp" alt="The Nanda room, warm wooden floors and linen curtains" loading="lazy"></div>
-    <div class="reveal r2">
-      <div class="room-no">02</div>
-      <div class="room-type">Deluxe Room · Forest View</div>
-      <h3>Nanda</h3>
-      <p class="room-meaning">After Nanda Devi, the sacred guardian peak</p>
-      <p>Warm timber floors, soft light through linen curtains, and a stillness that settles the moment you step inside. A room named for the goddess mountain herself.</p>
-      <ul class="amenities"><li>Forest view</li><li>Two single beds</li><li>En suite bath</li><li>Wi-Fi</li></ul>
-      <a class="link" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Nanda%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Nanda <span aria-hidden="true">→</span></a>
+    <div class="rp" role="tabpanel" id="panel-nanda" aria-labelledby="tab-nanda" hidden>
+      <div class="rp-gallery">
+        <div class="rp-main"><img src="assets/img/room-nanda-1.webp" alt="Nanda room with a wall of curtained windows" loading="lazy"><span class="rp-count"><b>1</b> / 3</span></div>
+        <div class="rp-thumbs"><button class="rp-thumb on" data-src="assets/img/room-nanda-1.webp" data-alt="Nanda room with a wall of curtained windows" aria-label="Show photo 1 of Nanda"><img src="assets/img/room-nanda-1.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-nanda-2.webp" data-alt="Window seats in Nanda looking into the trees" aria-label="Show photo 2 of Nanda"><img src="assets/img/room-nanda-2.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-nanda-3.webp" data-alt="Nanda bed and patterned rug" aria-label="Show photo 3 of Nanda"><img src="assets/img/room-nanda-3.webp" alt="" loading="lazy"></button></div>
+      </div>
+      <div class="rp-info">
+        <div class="rp-type">Deluxe Room</div>
+        <h3>Nanda</h3>
+        <p class="rp-meaning">After Nanda Devi, the sacred guardian peak</p>
+        
+        <p class="rp-desc">Warm timber floors, soft light through linen curtains, and a stillness that settles the moment you step inside. A room named for the goddess mountain herself.</p>
+        <dl class="rp-facts"><div><dt>Sleeps</dt><dd>Two guests</dd></div><div><dt>Beds</dt><dd>Two single beds</dd></div><div><dt>View</dt><dd>The oak forest</dd></div><div><dt>Bath</dt><dd>En suite</dd></div><div><dt>Wi-Fi</dt><dd>Included</dd></div><div><dt>Ideal for</dt><dd>Slow, quiet days</dd></div></dl>
+        <a class="btn btn-wood" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Nanda%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Nanda</a>
+      </div>
     </div>
-  </article>
-
-  <article class="room">
-    <div class="room-media reveal"><img src="assets/img/room-pancha.webp" alt="The Pancha room, handcrafted wood and natural light" loading="lazy"></div>
-    <div class="reveal r2">
-      <div class="room-no">03</div>
-      <div class="room-type">Deluxe Room · Garden View</div>
-      <h3>Pancha</h3>
-      <p class="room-meaning">After Panchachuli, the five sacred summits</p>
-      <p>Natural light, handcrafted wood and all the quiet you came for. Simple, intentional and deeply restful.</p>
-      <ul class="amenities"><li>Garden view</li><li>Two single beds</li><li>En suite bath</li><li>Wi-Fi</li></ul>
-      <a class="link" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Pancha%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Pancha <span aria-hidden="true">→</span></a>
+    <div class="rp" role="tabpanel" id="panel-pancha" aria-labelledby="tab-pancha" hidden>
+      <div class="rp-gallery">
+        <div class="rp-main"><img src="assets/img/room-pancha-1.webp" alt="Pancha room beneath a timber ceiling" loading="lazy"><span class="rp-count"><b>1</b> / 4</span></div>
+        <div class="rp-thumbs"><button class="rp-thumb on" data-src="assets/img/room-pancha-1.webp" data-alt="Pancha room beneath a timber ceiling" aria-label="Show photo 1 of Pancha"><img src="assets/img/room-pancha-1.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-pancha-2.webp" data-alt="Pancha bed facing the tall windows" aria-label="Show photo 2 of Pancha"><img src="assets/img/room-pancha-2.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-pancha-3.webp" data-alt="Window seats in Pancha" aria-label="Show photo 3 of Pancha"><img src="assets/img/room-pancha-3.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-pancha-4.webp" data-alt="Morning light across Pancha" aria-label="Show photo 4 of Pancha"><img src="assets/img/room-pancha-4.webp" alt="" loading="lazy"></button></div>
+      </div>
+      <div class="rp-info">
+        <div class="rp-type">Deluxe Room</div>
+        <h3>Pancha</h3>
+        <p class="rp-meaning">After Panchachuli, the five sacred summits</p>
+        
+        <p class="rp-desc">Natural light, handcrafted wood and all the quiet you came for. Simple, intentional and deeply restful.</p>
+        <dl class="rp-facts"><div><dt>Sleeps</dt><dd>Two guests</dd></div><div><dt>Beds</dt><dd>Two single beds</dd></div><div><dt>View</dt><dd>The garden</dd></div><div><dt>Bath</dt><dd>En suite</dd></div><div><dt>Wi-Fi</dt><dd>Included</dd></div><div><dt>Ideal for</dt><dd>Reading and rest</dd></div></dl>
+        <a class="btn btn-wood" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Pancha%20room%20at%20Oakakhi." target="_blank" rel="noopener">Enquire about Pancha</a>
+      </div>
     </div>
-  </article>
-
-  <article class="room">
-    <div class="room-media reveal"><img src="assets/img/room-suite.webp" alt="The Oakakhi Suite, a lofted two bedroom family suite" loading="lazy"></div>
-    <div class="reveal r2">
-      <div class="room-no">04</div>
-      <div class="room-type">Two Bedroom Family Suite · Mountain View</div>
-      <h3>The Oakakhi Suite</h3>
-      <p class="room-meaning">For families and close friends who wish to share the mountains</p>
-      <p>Two bedrooms beneath a lofted timber ceiling, a shared living space, a kitchen and sweeping Himalayan views. A complete mountain home for up to four guests, entirely your own. Pets are welcome.</p>
-      <ul class="amenities"><li>Two bedrooms</li><li>Up to four guests</li><li>Kitchen</li><li>Mountain view</li><li>En suite bath</li><li>Pets welcome</li></ul>
-      <a class="link" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Oakakhi%20Suite." target="_blank" rel="noopener">Enquire about the Suite <span aria-hidden="true">→</span></a>
+    <div class="rp" role="tabpanel" id="panel-suite" aria-labelledby="tab-suite" hidden>
+      <div class="rp-gallery">
+        <div class="rp-main"><img src="assets/img/room-suite-1.webp" alt="The suite under its lofted timber ceiling" loading="lazy"><span class="rp-count"><b>1</b> / 5</span></div>
+        <div class="rp-thumbs"><button class="rp-thumb on" data-src="assets/img/room-suite-1.webp" data-alt="The suite under its lofted timber ceiling" aria-label="Show photo 1 of The Oakakhi Suite"><img src="assets/img/room-suite-1.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-suite-2.webp" data-alt="The suite staircase to the loft" aria-label="Show photo 2 of The Oakakhi Suite"><img src="assets/img/room-suite-2.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-suite-3.webp" data-alt="The second bedroom of the suite" aria-label="Show photo 3 of The Oakakhi Suite"><img src="assets/img/room-suite-3.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-suite-4.webp" data-alt="A picture window looking over the hills" aria-label="Show photo 4 of The Oakakhi Suite"><img src="assets/img/room-suite-4.webp" alt="" loading="lazy"></button><button class="rp-thumb" data-src="assets/img/room-suite-5.webp" data-alt="Morning tea at the suite window" aria-label="Show photo 5 of The Oakakhi Suite"><img src="assets/img/room-suite-5.webp" alt="" loading="lazy"></button></div>
+      </div>
+      <div class="rp-info">
+        <div class="rp-type">Two Bedroom Family Suite</div>
+        <h3>The Oakakhi Suite</h3>
+        <p class="rp-meaning">For families and close friends who wish to share the mountains</p>
+        <span class="badge">Pets welcome</span>
+        <p class="rp-desc">Two bedrooms beneath a lofted timber ceiling, a shared living space, a kitchen and sweeping Himalayan views. A complete mountain home, entirely your own.</p>
+        <dl class="rp-facts"><div><dt>Sleeps</dt><dd>Up to four</dd></div><div><dt>Rooms</dt><dd>Two bedrooms</dd></div><div><dt>View</dt><dd>The Himalaya</dd></div><div><dt>Living</dt><dd>Kitchen and lounge</dd></div><div><dt>Bath</dt><dd>En suite</dd></div><div><dt>Ideal for</dt><dd>Families and pets</dd></div></dl>
+        <a class="btn btn-wood" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20am%20interested%20in%20the%20Oakakhi%20Suite." target="_blank" rel="noopener">Enquire about the Suite</a>
+      </div>
     </div>
-  </article>
+  </div>
+  <div class="includes reveal">
+    <h4>Every stay includes</h4>
+    <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a14.5 14.5 0 0 1 20 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><span>Fast Wi-Fi</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M6 12V6a2 2 0 0 1 3.5-1.3M7 19l-1 2M17 19l1 2"/></svg><span>En suite bathrooms</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20l7-11 4 6 3-4 6 9z"/><path d="M9 9l1.5 2.2"/></svg><span>Himalaya or forest views</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>Hosted by Nishant</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M8 7c0-1.5 1-2 1-3.5M12 7c0-1.5 1-2 1-3.5M16 7c0-1.5 1-2 1-3.5"/></svg><span>Home style Kumaoni food</span></li></ul>
+  </div>
 </section>
 
 <!-- EXPERIENCES -->
@@ -783,6 +857,19 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+
+  // Rooms: tabs and per room gallery
+  var tabs=[].slice.call(document.querySelectorAll('.rt'));
+  function selectTab(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus();t.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'})}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){selectTab(t)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();selectTab(tabs[(i+d+tabs.length)%tabs.length],true)}})});
+  document.querySelectorAll('.rp').forEach(function(panel){
+    var main=panel.querySelector('.rp-main img');
+    panel.querySelectorAll('.rp-thumb').forEach(function(b){b.addEventListener('click',function(){
+      if(b.classList.contains('on'))return;panel.querySelectorAll('.rp-thumb').forEach(function(x){x.classList.toggle('on',x===b)});
+      var idx=[].indexOf.call(panel.querySelectorAll('.rp-thumb'),b)+1;panel.querySelector('.rp-count b').textContent=idx;main.classList.add('fading');setTimeout(function(){main.src=b.dataset.src;main.alt=b.dataset.alt;main.onload=function(){main.classList.remove('fading')}},250);
+    })});
+  });
 
   // Experience pages
   var back=document.getElementById('ep-back'),openPage=null,lastFocus=null;
