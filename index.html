@@ -120,30 +120,21 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 /* ---------- intro ---------- */
 .intro{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(3rem,7vw,7rem);align-items:center}
 .intro h2{margin:1.4rem 0 2rem}
-.name-eq{display:flex;align-items:flex-start;gap:clamp(1rem,2.5vw,2rem);margin:2rem 0 0}
+.name-eq{display:flex;align-items:flex-start;gap:clamp(1rem,2.5vw,2rem);margin:2.2rem 0 0}
+.ne-together{font-family:var(--serif);font-size:clamp(1.4rem,2vw,1.7rem);color:var(--oak);margin:2.6rem 0 2.2rem}
+.ne-together em{color:var(--wood)}
 .ne-part{display:flex;flex-direction:column;gap:.6rem}
 .ne-word{font-family:var(--serif);font-weight:300;font-size:clamp(3.6rem,7vw,6rem);line-height:.9;color:var(--oak-ink)}
 .ne-word em{color:var(--wood)}
 .ne-note{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--wood);padding-top:.9rem;border-top:1px solid var(--line-light)}
 .ne-note i{font-family:var(--serif);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--oak)}
 .ne-sign{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.5vw,3rem);line-height:1.6;color:var(--leaf)}
-.ne-result{display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem 1.2rem;margin:2.2rem 0 2.4rem;padding:1.4rem 1.6rem;background:var(--paper);border:1px solid var(--line-light);border-radius:18px}
-.ne-full{font-family:var(--serif);font-size:clamp(2rem,3.4vw,2.6rem);line-height:1;color:var(--oak)}
-.ne-full em{color:var(--wood)}
-.ne-line{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.6vw,1.35rem);color:var(--oak);opacity:.85}
 .quote{margin-top:2.6rem;padding-left:1.6rem;border-left:1px solid var(--wood)}
 .quote p{font-family:var(--serif);font-size:clamp(1.35rem,2vw,1.65rem);font-style:italic;line-height:1.45;color:var(--oak)}
 .quote cite{display:block;margin-top:.9rem;font-style:normal;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--wood)}
 .collage{position:relative;padding:0 0 22% 14%}
 .collage .main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--arch);outline:1px solid rgba(146,94,39,.35);outline-offset:10px}
 .collage .accent{position:absolute;left:0;bottom:0;width:40%;aspect-ratio:3/4;object-fit:cover;border:10px solid var(--cream);border-radius:calc(var(--r) + 10px);box-shadow:0 30px 60px -30px rgba(35,42,34,.45)}
-.meaning-card{position:absolute;right:-4%;bottom:9%;width:48%;padding:1.6rem 1.7rem 1.5rem;background:rgba(47,55,45,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--cream);border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(35,42,34,.6)}
-.mc-eq{display:block;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--leaf)}
-.mc-eq i{font-style:normal;opacity:.7;margin:0 .3rem}
-.meaning-card strong{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1.08;margin:.7rem 0 .8rem}
-.meaning-card strong em{color:var(--leaf-soft)}
-.meaning-card small{display:block;font-family:var(--serif);font-style:italic;font-size:1rem;opacity:.8}
-.collage .tag{position:absolute;right:-2.4rem;top:12%;writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--wood)}
 
 /* ---------- band ---------- */
 .band{position:relative;min-height:78vh;margin:0 clamp(.75rem,2vw,1.5rem);border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);background:var(--oak-deep) url('assets/img/band.webp') center/cover no-repeat;background-attachment:fixed;padding:8rem var(--gutter)}
@@ -318,8 +309,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .intro,.room,.host,.reach,.beyond,.ep-intro{grid-template-columns:1fr}
   .room:nth-of-type(even) .room-media{order:0}
   .collage{padding:0 0 30% 10%}
-  .meaning-card{right:0;bottom:4%;width:56%;padding:1.1rem 1.2rem}
-  .exp-grid{grid-template-columns:1fr 1fr}
+    .exp-grid{grid-template-columns:1fr 1fr}
   .reviews{grid-template-columns:1fr}
   .beyond-media{min-height:340px}
   .footer-top{grid-template-columns:1fr 1fr}
@@ -350,14 +340,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .reserve-bar.on{transform:none}
   .reserve-bar .btn{flex:1;justify-content:center;padding:.95rem}
   .site-footer{padding-bottom:6rem}
-  .meaning-card{position:absolute;right:-4%;bottom:9%;width:48%;padding:1.6rem 1.7rem 1.5rem;background:rgba(47,55,45,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--cream);border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(35,42,34,.6)}
-.mc-eq{display:block;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--leaf)}
-.mc-eq i{font-style:normal;opacity:.7;margin:0 .3rem}
-.meaning-card strong{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1.08;margin:.7rem 0 .8rem}
-.meaning-card strong em{color:var(--leaf-soft)}
-.meaning-card small{display:block;font-family:var(--serif);font-style:italic;font-size:1rem;opacity:.8}
-.collage .tag{display:none}
-  .host-strip{grid-template-columns:repeat(3,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(var(--gutter) * -1);padding-right:var(--gutter);padding-bottom:.5rem;scrollbar-width:none}
+    .host-strip{grid-template-columns:repeat(3,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(var(--gutter) * -1);padding-right:var(--gutter);padding-bottom:.5rem;scrollbar-width:none}
   .host-strip::-webkit-scrollbar{display:none}
   .host-strip figure{scroll-snap-align:start}
   .hs-head{justify-self:start;width:calc(100vw - 2 * var(--gutter))}
@@ -429,9 +412,8 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
         <span class="ne-sign" aria-hidden="true">+</span>
         <div class="ne-part"><span class="ne-word"><em>akhi</em></span><span class="ne-note">Pahadi, <i>in the lap of</i></span></div>
       </div>
-      <div class="ne-result"><span class="ne-full">Oak<em>akhi</em></span><span class="ne-line">In the lap of the oaks</span></div>
-      <p class="lead">Oakakhi is exactly that: a home held by a forest of Baanj, the Himalayan oak so loved across Uttarakhand, on the ridges of Ranikhet near the ancient Kalika Temple.</p>
-      <p class="lead">You arrive on foot. The car rests about two hundred metres away, and a short trail through the oaks carries you the rest of the way. By the time the house appears, the city has already fallen away. What remains is oak canopy, mountain air and the unhurried rhythm of Kumaoni life.</p>
+      <p class="ne-together">Together, <em>in the lap of the oaks.</em></p>
+      <p class="lead">A quiet home on the ridges of Ranikhet. The car rests two hundred metres away, and a short trail through the trees carries you the rest of the way. By the time the house appears, the city has fallen away.</p>
       <div class="quote">
         <p>Some places entertain you. A few, quietly, change you. Oakakhi hopes to be one of the few.</p>
         <cite>The Oakakhi philosophy</cite>
@@ -440,12 +422,6 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     <figure class="collage reveal r2">
       <img class="main" src="assets/img/mist-house.webp" alt="Oakakhi wrapped in monsoon mist, framed by the leaves of the forest" loading="lazy">
       <img class="accent" src="assets/img/mist-balcony.webp" alt="Rain falling over Oakakhi, seen from a timber balcony among the trees" loading="lazy">
-      <figcaption class="meaning-card">
-        <span class="mc-eq">Oak <i>+</i> akhi</span>
-        <strong>Held close<br>by the <em>Baanj</em></strong>
-        <small>Monsoon mist on the Kalika ridge</small>
-      </figcaption>
-      <span class="tag">In the lap of the Baanj oaks</span>
     </figure>
   </div>
 </section>
