@@ -86,6 +86,18 @@ p+p{margin-top:1.1rem}
 .hero-media,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-media img{animation:heroZoom 18s var(--ease) both}
 .hero-media video{opacity:0;transition:opacity 1.2s var(--ease)}
+/* cinematic grade over the drone film */
+.hero-media img,.hero-media video{filter:saturate(1.25) contrast(1.16) brightness(.97)}
+.hero-fx,.hero-fx span{position:absolute;inset:0;pointer-events:none}
+.hero-fx{z-index:1;overflow:hidden}
+.fx-tone{background:linear-gradient(180deg,rgba(255,196,120,.32) 0%,rgba(206,186,57,.12) 45%,rgba(20,70,60,.6) 100%);mix-blend-mode:soft-light}
+.fx-sun{inset:-30%;background:radial-gradient(closest-side at 92% 4%,rgba(255,214,140,.55),rgba(232,180,90,.22) 45%,rgba(232,180,90,0) 80%);mix-blend-mode:screen;animation:sunDrift 24s ease-in-out infinite alternate}
+.fx-haze{background:linear-gradient(222deg,rgba(255,220,150,.32) 0%,rgba(255,220,150,.08) 28%,rgba(255,220,150,0) 46%);mix-blend-mode:screen;animation:hazePulse 10s ease-in-out infinite alternate}
+.fx-vignette{background:radial-gradient(ellipse 90% 80% at 55% 42%,rgba(20,26,20,0) 60%,rgba(20,26,20,.42) 100%)}
+.fx-grain{inset:-50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.06;mix-blend-mode:overlay;animation:grain 1.2s steps(6) infinite}
+@keyframes sunDrift{from{transform:translate(-3%,-2%) scale(1)}to{transform:translate(4%,3%) scale(1.08)}}
+@keyframes hazePulse{from{opacity:.65}to{opacity:1}}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-2%,-3%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
 .hero-media video.ready{opacity:1}
 @keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,42,34,.62) 0%,rgba(35,42,34,.3) 38%,rgba(35,42,34,0) 62%),linear-gradient(180deg,rgba(35,42,34,.5) 0%,rgba(35,42,34,0) 26%,rgba(35,42,34,.05) 50%,rgba(35,42,34,.8) 100%)}
@@ -442,6 +454,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     </picture>
     <video id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
+  <div class="hero-fx" aria-hidden="true"><span class="fx-tone"></span><span class="fx-sun"></span><span class="fx-haze"></span><span class="fx-vignette"></span><span class="fx-grain"></span></div>
   <div class="hero-inner">
     <div>
       <span class="eyebrow fade-up">Kalika&nbsp;&nbsp;·&nbsp;&nbsp;Ranikhet<span class="hide-sm">&nbsp;&nbsp;·&nbsp;&nbsp;Kumaon Himalaya</span></span>
