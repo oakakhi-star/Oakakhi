@@ -17,8 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width: 761px)">
-<link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width: 760px)">
+<link rel="preload" as="image" href="assets/img/hero-poster.webp" media="(min-width: 761px)">
+<link rel="preload" as="image" href="assets/img/hero-poster-m.webp" media="(max-width: 760px)">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LodgingBusiness","name":"Oakakhi Stays","description":"A private forest homestay of five rooms near Kalika Temple, Ranikhet, with Himalayan views.","url":"https://oakakhistays.com/","image":"https://oakakhistays.com/assets/img/og.jpg","telephone":"+91 98702 13163","address":{"@type":"PostalAddress","streetAddress":"Village Dadgaliya, PO Kalika","addressLocality":"Ranikhet","addressRegion":"Uttarakhand","postalCode":"263652","addressCountry":"IN"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"177"},"petsAllowed":true,"sameAs":["https://www.instagram.com/Oakakhi_stays"]}
 </script>
@@ -80,9 +80,11 @@ p+p{margin-top:1.1rem}
 /* ---------- hero ---------- */
 .hero{position:relative;height:100vh;height:100svh;min-height:620px;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;background:var(--oak-deep)}
 .hero-media,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-media img,.hero-media video{animation:heroZoom 18s var(--ease) both}
+.hero-media img{animation:heroZoom 18s var(--ease) both}
+.hero-media video{opacity:0;transition:opacity 1.2s var(--ease)}
+.hero-media video.ready{opacity:1}
 @keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,42,34,.55) 0%,rgba(35,42,34,0) 28%,rgba(35,42,34,0) 45%,rgba(35,42,34,.82) 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,42,34,.62) 0%,rgba(35,42,34,.3) 38%,rgba(35,42,34,0) 62%),linear-gradient(180deg,rgba(35,42,34,.5) 0%,rgba(35,42,34,0) 26%,rgba(35,42,34,.05) 50%,rgba(35,42,34,.8) 100%)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:0 var(--gutter) clamp(3.5rem,9vh,6.5rem);display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem}
 .hero .eyebrow{color:var(--leaf);margin-bottom:1.6rem}
 .hero h1{font-size:clamp(3.4rem,9vw,8.5rem);line-height:.95}
@@ -300,6 +302,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 @media (max-width:760px){
   .hero-inner{grid-template-columns:1fr}
   .hero-meta{display:none}
+  .hero::after{background:linear-gradient(180deg,rgba(35,42,34,.45) 0%,rgba(35,42,34,.2) 25%,rgba(35,42,34,.55) 45%,rgba(35,42,34,.88) 100%)}
   .strip{grid-template-columns:1fr 1fr 1fr}
   .strip div{padding:1.4rem .5rem;font-size:.56rem;letter-spacing:.16em}
   .strip strong{font-size:1.5rem}
@@ -342,12 +345,11 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <!-- Drone film goes here once available:
-    <video autoplay muted loop playsinline poster="assets/img/hero.webp"><source src="assets/video/hero.mp4" type="video/mp4"></video> -->
     <picture>
-      <source media="(max-width: 760px)" srcset="assets/img/hero-m.webp">
-      <img src="assets/img/hero.webp" srcset="assets/img/hero-1400.webp 1400w, assets/img/hero.webp 2400w" sizes="100vw" alt="The Himalayan range glowing at dusk, seen from Oakakhi">
+      <source media="(max-width: 760px)" srcset="assets/img/hero-poster-m.webp">
+      <img src="assets/img/hero-poster.webp" alt="Aerial view of Oakakhi rising out of the oak forest">
     </picture>
+    <video id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
   <div class="hero-inner">
     <div>
@@ -721,6 +723,14 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   var nav=document.getElementById('nav'),bar=document.getElementById('reserve-bar');
   function onScroll(){var y=window.scrollY;nav.classList.toggle('scrolled',y>60);bar.classList.toggle('on',y>window.innerHeight*.8)}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Hero film: lighter cut on phones, still image when motion is reduced
+  var v=document.getElementById('hero-video');
+  if(v&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.src=window.matchMedia('(max-width: 760px)').matches?'assets/video/hero-m.mp4':'assets/video/hero.mp4';
+    v.addEventListener('playing',function(){v.classList.add('ready')},{once:true});
+    var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
+  }
 
   var burger=document.getElementById('burger');
   burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
