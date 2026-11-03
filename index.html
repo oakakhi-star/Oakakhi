@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oakakhi Stays · A Forest Homestay in Ranikhet, Kumaon Himalaya</title>
-<meta name="description" content="Oakakhi is a private forest homestay of five rooms near Kalika Temple, Ranikhet. Himalayan views, oak forest, Kumaoni hospitality and experiences hosted by Nishant.">
+<title>Oakakhi Stays · Forest Homestay in Ranikhet, Uttarakhand</title>
+<meta name="description" content="Oakakhi Stays is a forest homestay in Ranikhet, Uttarakhand, near Kalika Temple. Himalayan views, oak forest, birdwatching, stargazing, treks and Kumaoni hospitality, hosted by Nishant.">
 <meta name="theme-color" content="#2F372D">
 <link rel="canonical" href="https://oakakhistays.com/">
 <meta property="og:type" content="website">
@@ -84,23 +84,9 @@ p+p{margin-top:1.1rem}
 /* ---------- hero ---------- */
 .hero{position:relative;height:100vh;height:100svh;min-height:620px;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;background:var(--oak-deep)}
 .hero-media,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-media img{animation:heroZoom 18s var(--ease) both}
 .hero-media video{opacity:0;transition:opacity 1.2s var(--ease)}
-/* cinematic grade over the drone film */
-.hero-media img,.hero-media video{filter:saturate(1.25) contrast(1.16) brightness(.97)}
-.hero-fx,.hero-fx span{position:absolute;inset:0;pointer-events:none}
-.hero-fx{z-index:1;overflow:hidden}
-.fx-tone{background:linear-gradient(180deg,rgba(255,196,120,.32) 0%,rgba(206,186,57,.12) 45%,rgba(20,70,60,.6) 100%);mix-blend-mode:soft-light}
-.fx-sun{inset:-30%;background:radial-gradient(closest-side at 92% 4%,rgba(255,214,140,.55),rgba(232,180,90,.22) 45%,rgba(232,180,90,0) 80%);mix-blend-mode:screen;animation:sunDrift 24s ease-in-out infinite alternate}
-.fx-haze{background:linear-gradient(222deg,rgba(255,220,150,.32) 0%,rgba(255,220,150,.08) 28%,rgba(255,220,150,0) 46%);mix-blend-mode:screen;animation:hazePulse 10s ease-in-out infinite alternate}
-.fx-vignette{background:radial-gradient(ellipse 90% 80% at 55% 42%,rgba(20,26,20,0) 60%,rgba(20,26,20,.42) 100%)}
-.fx-grain{inset:-50%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.06;mix-blend-mode:overlay;animation:grain 1.2s steps(6) infinite}
-@keyframes sunDrift{from{transform:translate(-3%,-2%) scale(1)}to{transform:translate(4%,3%) scale(1.08)}}
-@keyframes hazePulse{from{opacity:.65}to{opacity:1}}
-@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-2%,-3%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
 .hero-media video.ready{opacity:1}
-@keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,42,34,.62) 0%,rgba(35,42,34,.3) 38%,rgba(35,42,34,0) 62%),linear-gradient(180deg,rgba(35,42,34,.5) 0%,rgba(35,42,34,0) 26%,rgba(35,42,34,.05) 50%,rgba(35,42,34,.8) 100%)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 88% 0%,rgba(255,214,150,.16),rgba(255,214,150,0) 70%),linear-gradient(90deg,rgba(35,42,34,.58) 0%,rgba(35,42,34,.26) 38%,rgba(35,42,34,0) 62%),linear-gradient(180deg,rgba(35,42,34,.42) 0%,rgba(35,42,34,0) 24%,rgba(35,42,34,0) 55%,rgba(35,42,34,.72) 100%)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:0 var(--gutter) clamp(3.5rem,9vh,6.5rem);display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem}
 .hero .eyebrow{color:var(--leaf);margin-bottom:1.6rem}
 .hero h1{font-size:clamp(3.4rem,9vw,8.5rem);line-height:.95}
@@ -155,8 +141,10 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 .collage .accent{position:absolute;left:0;bottom:0;width:40%;aspect-ratio:3/4;object-fit:cover;border:10px solid var(--cream);border-radius:calc(var(--r) + 10px);box-shadow:0 30px 60px -30px rgba(35,42,34,.45)}
 
 /* ---------- band ---------- */
-.band{position:relative;min-height:78vh;margin:0 clamp(.75rem,2vw,1.5rem);border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);background:var(--oak-deep) url('assets/img/band.webp') center/cover no-repeat;background-attachment:fixed;padding:8rem var(--gutter)}
-.band::before{content:'';position:absolute;inset:0;border-radius:inherit;background:rgba(35,42,34,.45)}
+.band{position:relative;min-height:78vh;margin:0 clamp(.75rem,2vw,1.5rem);border-radius:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);background:var(--oak-deep);padding:8rem var(--gutter)}
+.band-img,.band-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::before{content:'';position:absolute;inset:0;z-index:1;border-radius:inherit;background:linear-gradient(180deg,rgba(35,42,34,0) 0%,rgba(35,42,34,.22) 45%,rgba(35,42,34,.55) 100%)}
+.band blockquote{z-index:2}
 .band blockquote{position:relative;max-width:56rem}
 .band p{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.8rem);font-weight:300;line-height:1.15}
 .band p em{color:var(--leaf-soft)}
@@ -235,6 +223,20 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .includes ul{grid-template-columns:1fr 1fr}
 }
 
+
+/* ---------- letters teaser ---------- */
+.lt-teaser-head{max-width:1240px;margin:0 auto clamp(2.5rem,5vw,3.5rem);display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.lt-teaser-head h2{margin-top:1.4rem}
+.lt-teaser-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,3vw,2.25rem)}
+.lt-mini{display:block;text-decoration:none}
+.lt-mini img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);transition:transform 1.4s var(--ease)}
+.lt-mini:hover img{transform:scale(1.03)}
+.lt-mini-tag{display:block;margin-top:1.2rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--wood)}
+.lt-mini h3{font-size:1.55rem;margin-top:.5rem;line-height:1.2;transition:color .3s}
+.lt-mini:hover h3{color:var(--wood)}
+#letters{padding-top:clamp(5rem,9vw,7rem)}
+@media (max-width:760px){.lt-teaser-grid{grid-template-columns:1fr}}
+
 /* ---------- experiences ---------- */
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .exp-card{border-radius:var(--r);transform:translateZ(0);position:relative;display:block;aspect-ratio:3/4;overflow:hidden;color:var(--cream);text-decoration:none;cursor:pointer;background:var(--oak-deep)}
@@ -296,7 +298,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 
 /* ---------- turiya ---------- */
 .beyond{display:grid;grid-template-columns:1.2fr 1fr;min-height:560px;padding:clamp(1rem,2vw,1.5rem);gap:clamp(1rem,2vw,1.5rem)}
-.beyond-media{border-radius:var(--r);background:url('assets/img/expw-sightseeing.webp') center/cover no-repeat}
+.beyond-media{border-radius:var(--r);background:url('assets/img/beyond.webp') center 60%/cover no-repeat}
 .beyond-text{padding:clamp(4rem,8vw,7rem) var(--gutter);display:flex;flex-direction:column;justify-content:center}
 .beyond-text h2{margin:1.4rem 0 1.6rem}
 .beyond-text .lead strong{color:var(--leaf-soft);font-weight:400}
@@ -391,7 +393,6 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
   .beyond-media{min-height:340px}
   .footer-top{grid-template-columns:1fr 1fr}
   .footer-top>div:first-child{grid-column:1/-1}
-  .band{background-attachment:scroll;background-image:url('assets/img/band-1200.webp')}
   .host-media::before{display:none}
   .host-media{margin-right:10%}
   .host-strip{grid-template-columns:1fr 1fr 1fr}
@@ -440,6 +441,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     <li><a href="#host">Your Host</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#reach">Arrival</a></li>
+    <li><a href="letters/">Letters</a></li>
   </ul>
   <a class="btn btn-gold" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20would%20like%20to%20reserve%20a%20stay%20at%20Oakakhi." target="_blank" rel="noopener">Reserve</a>
   <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
@@ -454,12 +456,11 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     </picture>
     <video id="hero-video" muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
-  <div class="hero-fx" aria-hidden="true"><span class="fx-tone"></span><span class="fx-sun"></span><span class="fx-haze"></span><span class="fx-vignette"></span><span class="fx-grain"></span></div>
   <div class="hero-inner">
     <div>
       <span class="eyebrow fade-up">Kalika&nbsp;&nbsp;·&nbsp;&nbsp;Ranikhet<span class="hide-sm">&nbsp;&nbsp;·&nbsp;&nbsp;Kumaon Himalaya</span></span>
       <h1 class="fade-up d1">In the lap<br>of the <em>oaks</em></h1>
-      <p class="hero-sub fade-up d2">Five rooms on a forested ridge, facing the high Himalaya. Reached on foot, and kept deliberately quiet.</p>
+      <p class="hero-sub fade-up d2">A forest homestay in Ranikhet. Five rooms on a wooded ridge facing the high Himalaya, reached on foot and kept deliberately quiet.</p>
       <div class="hero-ctas fade-up d3">
         <a class="btn btn-gold" href="https://wa.me/919870213163?text=Hello%20Nishant%2C%20I%20would%20like%20to%20reserve%20a%20stay%20at%20Oakakhi." target="_blank" rel="noopener">Reserve your stay</a>
         <a class="btn btn-ghost" href="#story">Discover Oakakhi</a>
@@ -501,10 +502,14 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
 </section>
 
 <!-- BAND -->
-<div class="band" role="img" aria-label="Pine forest on the Ranikhet ridge with the Himalaya beyond">
+<div class="band">
+  <picture class="band-img">
+    <source media="(max-width: 760px)" srcset="assets/img/band-m.webp">
+    <img src="assets/img/band.webp" srcset="assets/img/band-1200.webp 1200w, assets/img/band.webp 2400w" sizes="100vw" alt="Trishul glowing rose at dusk, seen from Oakakhi" loading="lazy">
+  </picture>
   <blockquote class="reveal">
-    <p>Trishul. Nanda Devi. Panchachuli.<br><em>Each room is named for a peak you can see from the terrace.</em></p>
-    <span>The Himalaya, from Oakakhi</span>
+    <p>Every evening, the snows of Trishul<br><em>turn the colour of rose.</em></p>
+    <span>Trishul at dusk, from the Oakakhi terrace</span>
   </blockquote>
 </div>
 
@@ -618,7 +623,6 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
       <p>He came back not to visit, but to build. Oakakhi is the result: a home where strangers become guests, guests become friends, and the Himalaya forms the backdrop to honest conversation.</p>
       <p>He will walk you through the forest at dawn and name each birdsong. On winter nights he will point to Orion rising over the ridge and trace the constellations one by one. Oakakhi is his love letter to Ranikhet, and every guest is invited to read it.</p>
       <div class="pills"><span>Born in Ranikhet</span><span>Former Airbnb hospitality</span><span>Trek leader</span><span>Mountaineer</span><span>Stargazing host</span><span>Kumaoni cuisine</span></div>
-      <p class="signature">Nishant, your host</p>
     </div>
   </div>
   <div class="host-strip">
@@ -663,9 +667,6 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     <article class="review reveal"><blockquote>A hidden gem in Ranikhet. The walk through the forest to get there sets the tone. You step in and the city just disappears. Nishant's hosting is warm without being intrusive.</blockquote><footer>Verified guest · Google</footer></article>
     <article class="review reveal r2"><blockquote>Our deluxe room was beautiful, newly constructed and featuring a very large window with an expansive view of the Himalayas. Waking up to those mountains was something else entirely.</blockquote><footer>Verified guest · Booking.com</footer></article>
     <article class="review reveal r3"><blockquote>The bonfire evening was the highlight of our trip. We ended up talking for hours, about mountains, about life. That's not something a hotel can manufacture.</blockquote><footer>Verified guest · Google</footer></article>
-    <article class="review reveal"><blockquote>The mornings are so quiet you can hear individual birds. The food tasted like it was made with genuine care. We didn't want to leave.</blockquote><footer>Verified guest · Google</footer></article>
-    <article class="review reveal r2"><blockquote>Came for two nights, stayed four. There was nothing to do except watch the mountains and breathe. After six months of non-stop work, that was exactly what I needed.</blockquote><footer>Verified guest · Google</footer></article>
-    <article class="review reveal r3"><blockquote>Our stay at Oakakhi was very pleasant. Nishant has done a really good job with the rooms and service. Everyone was accommodating and helpful. The food was like home food.</blockquote><footer>Verified guest · Google</footer></article>
   </div>
 </section>
 
@@ -682,6 +683,16 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     </div>
   </div>
 </section>
+
+<!-- LETTERS:START -->
+<section class="light letters-teaser" id="letters">
+  <div class="lt-teaser-head reveal">
+    <div><span class="eyebrow">Letters from Oakakhi</span><h2>Notes from <em>the ridge</em></h2></div>
+    <a class="link" href="letters/">Read all letters <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="lt-teaser-grid"><a class="lt-mini reveal" href="letters/things-to-do-in-ranikhet/"><img src="assets/img/expw-sightseeing.webp" alt="The Himalaya seen between pines above Ranikhet" loading="lazy"><span class="lt-mini-tag">Guide</span><h3>Things to do in Ranikhet, the slow way</h3></a><a class="lt-mini reveal" href="letters/birdwatching-in-ranikhet/"><img src="assets/img/expw-birdwatching.webp" alt="A Khalij pheasant among the pines near Oakakhi" loading="lazy"><span class="lt-mini-tag">Birds</span><h3>Birdwatching in Ranikhet: the oak forest at dawn</h3></a><a class="lt-mini reveal" href="letters/treks-near-ranikhet/"><img src="assets/img/nishant-camp.webp" alt="A trekker at camp above a sea of Kumaon hills at first light" loading="lazy"><span class="lt-mini-tag">Treks</span><h3>Treks near Ranikhet, from forest walks to glaciers</h3></a></div>
+</section>
+<!-- LETTERS:END -->
 
 <!-- REACH -->
 <section class="light" id="reach">
@@ -723,7 +734,7 @@ section{padding:clamp(5.5rem,11vw,10rem) var(--gutter)}
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
-      <a href="#story">The Story</a><a href="#rooms">Rooms</a><a href="#experiences">Experiences</a><a href="#host">Your Host</a><a href="#gallery">Gallery</a><a href="#reach">Arrival</a>
+      <a href="#story">The Story</a><a href="#rooms">Rooms</a><a href="#experiences">Experiences</a><a href="#host">Your Host</a><a href="#gallery">Gallery</a><a href="#reach">Arrival</a><a href="letters/">Letters from Oakakhi</a>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
